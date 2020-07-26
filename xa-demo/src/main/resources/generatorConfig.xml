@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+
+    <!--
+        配置context
+            targetRuntime:MyBatis3/MyBatis3Simple
+            默认使用MyBatis3，两者区别在于生成的Mapper接口内容不同
+    -->
+<!--    <context id="MysqlContext" targetRuntime="MyBatis3Simple" defaultModelType="flat">-->
+    <context id="MysqlContext" targetRuntime="MyBatis3" defaultModelType="flat">
+        <property name="beginningDelimiter" value="`"/>
+        <property name="endingDelimiter" value="`"/>
+
+
+        <!--
+            数据库连接
+        -->
+        <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
+                        connectionURL="jdbc:mysql://192.168.137.203:3306/xa_203"
+                        userId="test"
+                        password="123456">
+        </jdbcConnection>
+
+        <!--
+            对应生成的pojo所在包
+        -->
+        <javaModelGenerator targetPackage="xyz.itihub.distributedtransaction.xa.dao203.model" targetProject="src/main/java"/>
+
+        <!--
+            对应生成的mapper所在目录
+        -->
+        <sqlMapGenerator targetPackage="mapper/db203" targetProject="src/main/resources"/>
+
+        <!--
+            配置mapper对应的java映射
+        -->
+        <javaClientGenerator targetPackage="xyz.itihub.distributedtransaction.xa.dao203.mapper" targetProject="src/main/java" type="XMLMAPPER"/>
+
+        <!--
+            table name
+        -->
+        <table tableName="xa_203" domainObjectName="XA203"/>
+
+    </context>
+</generatorConfiguration>
